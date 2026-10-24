@@ -34,7 +34,8 @@ function ContactRow({ icon, title, value, href, copyLabel }) {
       <span className="grid h-11 w-11 flex-none place-items-center rounded-xl bg-accent/10 text-accent">{icon}</span>
       <a href={href} className="min-w-0 flex-1">
         <span className="block text-xs text-muted">{title}</span>
-        <span className="block truncate font-bold text-white">{value}</span>
+        {/* Wraps instead of truncating, so the whole email stays readable on small phones. */}
+        <span className="block font-bold [overflow-wrap:anywhere] text-white">{value}</span>
       </a>
       <CopyButton value={value} label={copyLabel} />
     </div>
@@ -46,30 +47,31 @@ export default function Contact() {
 
   return (
     <Section id="contact" label="Contact" title="Have a project in mind?">
-      <Reveal className="relative overflow-hidden rounded-3xl border border-line bg-surface/80 p-6 sm:p-10">
+      <Reveal className="relative overflow-hidden rounded-3xl border border-line bg-surface/80 p-4 sm:p-10">
         <div className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-accent/10 blur-3xl" aria-hidden="true" />
-        <div className="relative grid gap-10 lg:grid-cols-[1.1fr_1fr]">
-          <div className="flex flex-col gap-6">
+        {/* minmax(0, …) columns and min-w-0 keep the long email from widening the card past the screen. */}
+        <div className="relative grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+          <div className="flex min-w-0 flex-col gap-6">
             <p className="max-w-xl text-lg leading-relaxed text-text/85">
               Tell me what you want to build, a chatbot over your documents, a prediction model or an AI feature in your
               app, and I'll reply with how I'd approach it.
             </p>
-            <div className="flex flex-wrap gap-3">
-              <Magnetic>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Magnetic className="w-full sm:w-auto">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-accent px-5 font-bold text-ink transition-colors hover:bg-accent-strong"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-accent px-5 font-bold text-ink transition-colors hover:bg-accent-strong sm:w-auto"
                 >
                   <Mail size={18} aria-hidden="true" /> Send an email
                 </a>
               </Magnetic>
-              <Magnetic>
+              <Magnetic className="w-full sm:w-auto">
                 <a
                   href={whatsapp.href}
                   target="_blank"
                   rel="noreferrer"
                   style={{ "--brand": BRAND_COLORS.whatsapp }}
-                  className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--brand)]/60 px-5 font-bold text-white transition-colors hover:bg-[var(--brand)] hover:text-ink"
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-[var(--brand)]/60 px-5 font-bold text-white transition-colors hover:bg-[var(--brand)] hover:text-ink sm:w-auto"
                 >
                   <BrandIcon id="whatsapp" size={18} /> Chat on WhatsApp
                 </a>
@@ -94,7 +96,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex min-w-0 flex-col gap-4">
             <p className="font-semibold text-white">Find me on</p>
             <Stagger as="ul" className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {socials.map((s) => (

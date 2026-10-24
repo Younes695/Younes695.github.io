@@ -98,7 +98,7 @@ export function CountUp({ value }) {
 }
 
 /** Wraps a button or link so it drifts slightly toward the cursor. */
-export function Magnetic({ children, strength = 0.25 }) {
+export function Magnetic({ children, strength = 0.25, className = "" }) {
   const ref = useRef(null);
   const reduce = useReducedMotion();
   const x = useSpring(0, { stiffness: 250, damping: 18 });
@@ -116,7 +116,7 @@ export function Magnetic({ children, strength = 0.25 }) {
   };
 
   return (
-    <motion.span ref={ref} onPointerMove={onMove} onPointerLeave={reset} style={{ x, y }} className="inline-flex">
+    <motion.span ref={ref} onPointerMove={onMove} onPointerLeave={reset} style={{ x, y }} className={`inline-flex ${className}`}>
       {children}
     </motion.span>
   );
