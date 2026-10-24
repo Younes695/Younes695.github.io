@@ -2,9 +2,15 @@
 
 export const profile = {
   name: "Abdelrahman Wael Younes",
+  brandName: "Abd-Elrahman Wael",
+  logoLetter: "A",
   role: "AI Engineer",
+  // The hero cycles through these after "I build".
+  focus: ["RAG chatbots that cite sources", "machine learning models", "Arabic + English AI apps", "models served as APIs"],
   location: "Port Said, Egypt",
   email: "abdelrahmanwaelit@gmail.com",
+  phone: "+20 100 505 6546",
+  phoneLink: "tel:+201005056546",
   github: "https://github.com/Younes695",
   linkedin: "https://www.linkedin.com/in/abd-elrahman-wael-younes",
   photo: "/profile.webp",
@@ -16,6 +22,16 @@ export const profile = {
     { value: "3.61", label: "GPA, IT Management" },
   ],
 };
+
+// Order here is the order of the icons in the hero and contact section.
+export const socials = [
+  { id: "github", label: "GitHub", href: "https://github.com/Younes695" },
+  { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/abd-elrahman-wael-younes" },
+  { id: "whatsapp", label: "WhatsApp", href: "https://wa.me/201005056546" },
+  { id: "telegram", label: "Telegram", href: "https://t.me/+201005056546" },
+  { id: "facebook", label: "Facebook", href: "https://www.facebook.com/abd.elrahman.younes.31123/" },
+  { id: "instagram", label: "Instagram", href: "https://www.instagram.com/abdelrahmanyounes7" },
+];
 
 export const about = [
   "I'm an IT Management student at Port Said University (class of 2027) focused on AI engineering: machine learning, deep learning and generative AI.",

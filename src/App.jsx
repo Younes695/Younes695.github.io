@@ -1,26 +1,27 @@
 import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
+import Hero, { SocialLinks } from "./components/Hero.jsx";
 import About from "./components/About.jsx";
 import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
 import Services from "./components/Services.jsx";
 import Journey from "./components/Journey.jsx";
 import Contact from "./components/Contact.jsx";
+import { BackToTop, CursorGlow, ScrollProgress } from "./components/effects.jsx";
 import { profile } from "./data.js";
 
 export default function App() {
   return (
-    <div className="bg-grid min-h-screen">
-      {/* Soft accent glow at the top of the page. */}
-      <div
-        className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(60%_60%_at_50%_0%,rgba(45,212,191,0.12),transparent)]"
-        aria-hidden="true"
-      />
-      <a href="#about" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-ink">
+    <div className="bg-grid relative min-h-screen overflow-x-clip">
+      <ScrollProgress />
+      <CursorGlow />
+      <a
+        href="#about"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[80] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-ink"
+      >
         Skip to content
       </a>
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Skills />
@@ -29,12 +30,18 @@ export default function App() {
         <Journey />
         <Contact />
       </main>
-      <footer className="border-t border-line">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-8 text-sm text-muted sm:flex-row sm:justify-between sm:px-6">
-          <p>© {new Date().getFullYear()} {profile.name}</p>
-          <p>Built with React and Tailwind CSS</p>
+      <footer className="relative z-10 border-t border-line">
+        <div className="mx-auto flex max-w-6xl flex-col items-start gap-5 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+          <div className="flex flex-col gap-1 text-sm text-muted">
+            <p className="font-bold text-white">{profile.brandName}</p>
+            <p>
+              © {new Date().getFullYear()} {profile.name}. Built with React and Tailwind CSS.
+            </p>
+          </div>
+          <SocialLinks size={40} iconSize={17} />
         </div>
       </footer>
+      <BackToTop />
     </div>
   );
 }

@@ -33,6 +33,47 @@ body {
   background-size: 28px 28px;
 }
 
+/* Light that follows the cursor inside a TiltCard (position set from JS). */
+.spotlight {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(45, 212, 191, 0.1), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Blinking caret after the typed text in the hero. */
+.caret {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  margin-left: 4px;
+  vertical-align: -0.12em;
+  background: var(--color-accent);
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
 /* Sections fade up once when they scroll into view (see useReveal). */
 .reveal {
   opacity: 0;
@@ -54,5 +95,8 @@ body {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .caret {
+    animation: none;
   }
 }
