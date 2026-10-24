@@ -7,6 +7,7 @@ import Services from "./components/Services.jsx";
 import Journey from "./components/Journey.jsx";
 import Contact from "./components/Contact.jsx";
 import { BackToTop, CursorGlow, ScrollProgress } from "./components/effects.jsx";
+import Analytics from "./components/Analytics.jsx";
 import { profile } from "./data.js";
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
         </div>
       </footer>
       <BackToTop />
+      <Analytics />
     </div>
   );
 }

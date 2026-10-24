@@ -20,3 +20,11 @@ npm run build
 ```
 
 The static site is written to `dist/`.
+
+## Deploy
+
+```bash
+bash scripts/deploy.sh
+```
+
+Builds the site and pushes `dist/` to the `gh-pages` branch. GitHub Pages serves that branch at https://younes695.github.io.

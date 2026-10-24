@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, Download, Mail, MapPin } from "lucide-react";
 import { profile, socials } from "../data.js";
 import BrandIcon, { BRAND_COLORS } from "./BrandIcon.jsx";
 import NeuralField from "./NeuralField.jsx";
@@ -112,6 +112,15 @@ export default function Hero() {
                 className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-line bg-surface/70 px-6 font-bold text-white backdrop-blur transition-colors hover:border-accent/60"
               >
                 Contact me
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a
+                href={profile.cv}
+                download
+                className="inline-flex min-h-12 items-center gap-2 rounded-xl px-4 font-bold text-accent transition-colors hover:text-white"
+              >
+                <Download size={18} aria-hidden="true" /> Download CV
               </a>
             </Magnetic>
           </motion.div>

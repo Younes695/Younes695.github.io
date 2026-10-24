@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Copy, Mail, Phone } from "lucide-react";
+import { Check, Copy, FileDown, Mail, Phone } from "lucide-react";
 import { profile, socials } from "../data.js";
 import BrandIcon, { BRAND_COLORS } from "./BrandIcon.jsx";
 import { Magnetic } from "./effects.jsx";
@@ -78,6 +78,19 @@ export default function Contact() {
             <div className="flex flex-col gap-3">
               <ContactRow icon={<Mail size={20} aria-hidden="true" />} title="Email" value={profile.email} href={`mailto:${profile.email}`} copyLabel="email" />
               <ContactRow icon={<Phone size={20} aria-hidden="true" />} title="Phone" value={profile.phone} href={profile.phoneLink} copyLabel="phone number" />
+              <a
+                href={profile.cv}
+                download
+                className="flex items-center gap-3 rounded-2xl border border-line bg-ink/40 p-3 transition-colors hover:border-accent/40"
+              >
+                <span className="grid h-11 w-11 flex-none place-items-center rounded-xl bg-accent/10 text-accent">
+                  <FileDown size={20} aria-hidden="true" />
+                </span>
+                <span className="flex-1">
+                  <span className="block text-xs text-muted">CV</span>
+                  <span className="block font-bold text-white">Download my CV (PDF)</span>
+                </span>
+              </a>
             </div>
           </div>
 

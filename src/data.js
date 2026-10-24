@@ -13,6 +13,9 @@ export const profile = {
   github: "https://github.com/Younes695",
   linkedin: "https://www.linkedin.com/in/abd-elrahman-wael-younes",
   photo: "/profile.webp",
+  cv: "/Abd-Elrahman-Younes-CV.pdf",
+  // GoatCounter site code (the part before .goatcounter.com). Empty = no analytics script.
+  goatcounter: "",
   intro:
     "I build AI applications, from RAG chatbots that cite their sources to machine learning models, in Arabic and English. I ship them with tests and measured results.",
   facts: [
