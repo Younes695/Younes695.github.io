@@ -1,6 +1,6 @@
 # Portfolio site
 
-Personal portfolio of Abdelrahman Wael Younes, built with React, Vite and Tailwind CSS.
+Personal portfolio of Abd-Elrahman Wael Younes, built with React, Vite and Tailwind CSS.
 
 ## Run locally
 

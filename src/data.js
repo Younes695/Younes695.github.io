@@ -1,9 +1,8 @@
 // All site content lives here. Adding a project = adding one object to `projects`.
 
 export const profile = {
-  name: "Abdelrahman Wael Younes",
+  name: "Abd-Elrahman Wael Younes",
   brandName: "Abd-Elrahman Wael",
-  logoLetter: "A",
   role: "AI Engineer",
   // The hero cycles through these after "I build".
   focus: ["RAG chatbots that cite sources", "machine learning models", "Arabic + English AI apps", "models served as APIs"],
@@ -28,7 +27,7 @@ export const socials = [
   { id: "github", label: "GitHub", href: "https://github.com/Younes695" },
   { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/abd-elrahman-wael-younes" },
   { id: "whatsapp", label: "WhatsApp", href: "https://wa.me/201005056546" },
-  { id: "telegram", label: "Telegram", href: "https://t.me/+201005056546" },
+  { id: "telegram", label: "Telegram", href: "https://t.me/abdElrahmanWael51" },
   { id: "facebook", label: "Facebook", href: "https://www.facebook.com/abd.elrahman.younes.31123/" },
   { id: "instagram", label: "Instagram", href: "https://www.instagram.com/abdelrahmanyounes7" },
 ];

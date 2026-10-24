@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { profile } from "../data.js";
+import LogoMark from "./LogoMark.jsx";
 
 const LINKS = [
   { id: "about", label: "About" },
@@ -56,10 +57,11 @@ export default function Navbar() {
         }`}
       >
         <a href="#top" className="group flex items-center gap-2.5 font-extrabold text-white" onClick={() => setOpen(false)}>
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-accent text-lg text-ink transition-transform duration-300 group-hover:rotate-[-8deg] group-hover:scale-105">
-            {profile.logoLetter}
+          <LogoMark />
+          <span className="text-[15px] tracking-tight sm:text-lg">
+            {profile.brandName}
+            <span className="bg-[linear-gradient(135deg,#2dd4bf,#0ea5e9)] bg-clip-text text-transparent">.</span>
           </span>
-          <span className="text-[15px] sm:text-base">{profile.brandName}</span>
         </a>
 
         <div className="hidden items-center gap-1 md:flex">
