@@ -7,7 +7,7 @@ import LogoMark from "../../components/LogoMark.jsx";
 import { CLASSES, CODE_URL, EXAMPLES, MODEL_URL } from "./config.js";
 import "../../index.css";
 
-const mb = (bytes) => `${(bytes / 1e6).toFixed(0)} MB`;
+const mb = (bytes) => `${(bytes / 1e6).toFixed(1)} MB`;
 
 function useClassifier() {
   const workerRef = useRef(null);
@@ -197,7 +197,10 @@ function Demo() {
                 <div className="h-full rounded-full bg-accent transition-[width] duration-300" style={{ width: `${percent}%` }} />
               </div>
               <p className="font-mono text-xs text-muted">
-                {progress?.total ? `Downloading the model: ${mb(progress.loaded)} of ${mb(progress.total)}` : "Starting..."}
+                {/* Small files (tokenizer, config) arrive first, so totals grow during the download. */}
+                {progress?.total > 1e6
+                  ? `Downloading the model: ${mb(progress.loaded)} of ${mb(progress.total)} (${percent.toFixed(0)}%)`
+                  : "Starting the download..."}
               </p>
             </div>
           )}
@@ -216,11 +219,15 @@ function Demo() {
               className="flex flex-col gap-4 border-t border-line pt-5"
               aria-live="polite"
             >
-              <p className="text-lg text-white">
-                <span aria-hidden="true">{topClass.emoji}</span> <strong>{topClass.name}</strong>
-                <span className="text-muted"> for </span>
-                <span dir="auto" className="font-semibold">“{result.text}”</span>
-              </p>
+              <div className="flex flex-col gap-2">
+                <p className="text-lg text-white">
+                  <span aria-hidden="true">{topClass.emoji}</span> <strong>{topClass.name}</strong>
+                </p>
+                {/* Its own block with dir="auto", so Arabic reads right-to-left without stray quote marks. */}
+                <p dir="auto" className="rounded-xl border border-line bg-ink/40 px-4 py-2 text-white">
+                  {result.text}
+                </p>
+              </div>
               <ScoreBars scores={result.scores} />
               <p className="font-mono text-xs text-muted">Predicted in {result.ms.toFixed(0)} ms on your device</p>
             </motion.div>
