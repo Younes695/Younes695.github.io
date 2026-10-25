@@ -15,7 +15,7 @@ export const profile = {
   photo: "/profile.webp",
   cv: "/Abd-Elrahman-Younes-CV.pdf",
   // GoatCounter site code (the part before .goatcounter.com). Empty = no analytics script.
-  goatcounter: "",
+  goatcounter: "younes",
   intro:
     "I build AI applications, from RAG chatbots that cite their sources to machine learning models, in Arabic and English. I ship them with tests and measured results.",
   facts: [
