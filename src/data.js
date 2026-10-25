@@ -98,6 +98,19 @@ export const projects = [
     demo: "/demos/sentiment/",
   },
   {
+    id: "receipts",
+    title: "Receipt to Excel with Gemini",
+    category: "Document AI",
+    summary:
+      "Turns receipt photos into items, prices and totals, then Excel. Compares a schema enforced by the API with one described in the prompt on 100 annotated receipts, and checks every mistake against the image.",
+    result: "Total correct on 97.9% of receipts, item F1 97.1%",
+    tags: ["Gemini", "Structured output", "Pydantic", "Evaluation", "Excel"],
+    image: "/projects/receipts.webp",
+    imageType: "screenshot",
+    github: "https://github.com/Younes695/receipt-extractor",
+    demo: "/demos/receipts/",
+  },
+  {
     id: "codveda",
     title: "Codveda ML Internship",
     category: "Machine Learning",

@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         main: resolve(import.meta.dirname, "index.html"),
         sentiment: resolve(import.meta.dirname, "demos/sentiment/index.html"),
+        receipts: resolve(import.meta.dirname, "demos/receipts/index.html"),
       },
     },
   },
