@@ -86,6 +86,17 @@ export const projects = [
     github: "https://github.com/Younes695/arabic-rag-chatbot",
   },
   {
+    id: "egy-sentiment",
+    title: "Egyptian Arabic Sentiment Analysis",
+    category: "NLP",
+    summary:
+      "Classifies Egyptian-dialect tweets as positive, negative, mixed or objective. Fine-tuned CAMeLBERT with a plain PyTorch loop and compared it with a TF-IDF baseline over 3 seeds, with an error analysis of what still fails.",
+    result: "Test macro-F1 0.542 vs 0.445 for the TF-IDF baseline",
+    tags: ["PyTorch", "Transformers", "CAMeLBERT", "Arabic NLP", "scikit-learn"],
+    image: "/projects/egy-sentiment.png",
+    github: "https://github.com/Younes695/egyptian-arabic-sentiment",
+  },
+  {
     id: "codveda",
     title: "Codveda ML Internship",
     category: "Machine Learning",
