@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { animate, motion, useInView, useMotionValue, useReducedMotion, useScroll, useSpring } from "motion/react";
+import { motion, useMotionValue, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { ArrowUp } from "lucide-react";
 
 const canHover = () => window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -65,35 +65,6 @@ export function TiltCard({ children, className = "", max = 6, as: Tag = "div" })
     >
       {children}
     </MotionTag>
-  );
-}
-
-/** Counts up to the number inside `value` ("123 hrs", "3.61", "8/13") once it is on screen. */
-export function CountUp({ value }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
-  const reduce = useReducedMotion();
-  const match = String(value).match(/^(\d+(?:\.\d+)?)(.*)$/);
-  const target = match ? parseFloat(match[1]) : 0;
-  const decimals = match && match[1].includes(".") ? match[1].split(".")[1].length : 0;
-  const suffix = match ? match[2] : "";
-  const isNumber = Boolean(match);
-  const [shown, setShown] = useState(reduce || !isNumber ? target : 0);
-
-  useEffect(() => {
-    if (!inView || reduce || !isNumber) return undefined;
-    const controls = animate(0, target, { duration: 1.4, ease: "easeOut", onUpdate: setShown });
-    return () => controls.stop();
-  }, [inView, reduce, target, isNumber]);
-
-  if (!match) return <span>{value}</span>;
-  return (
-    <span ref={ref} aria-label={value}>
-      <span aria-hidden="true">
-        {shown.toFixed(decimals)}
-        {suffix}
-      </span>
-    </span>
   );
 }
 

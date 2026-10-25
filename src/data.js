@@ -18,11 +18,6 @@ export const profile = {
   goatcounter: "younes",
   intro:
     "I build AI applications, from RAG chatbots that cite their sources to machine learning models, in Arabic and English. I ship them with tests and measured results.",
-  facts: [
-    { value: "8/13", label: "IBM AI Engineering courses" },
-    { value: "123 hrs", label: "ITI DevOps training" },
-    { value: "3.61", label: "GPA, IT Management" },
-  ],
 };
 
 // Order here is the order of the icons in the hero and contact section.
