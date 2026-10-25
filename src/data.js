@@ -95,6 +95,7 @@ export const projects = [
     tags: ["PyTorch", "Transformers", "CAMeLBERT", "Arabic NLP", "scikit-learn"],
     image: "/projects/egy-sentiment.png",
     github: "https://github.com/Younes695/egyptian-arabic-sentiment",
+    demo: "/demos/sentiment/",
   },
   {
     id: "codveda",
